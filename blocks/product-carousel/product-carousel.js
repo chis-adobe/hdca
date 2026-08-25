@@ -118,11 +118,20 @@ export default async function decorate(block) {
     card.className = 'product-carousel-card';
     card.href = path;
 
-    if (entry && entry.image) {
-      const pic = createOptimizedPicture(entry.image, entry.productName || '', false, [{ width: '400' }]);
+    const imageUrl = (entry && (entry.image || entry.imageSrc)) || '';
+    if (imageUrl) {
       const media = document.createElement('div');
       media.className = 'product-carousel-card-image';
-      media.append(pic);
+      if (/^https?:\/\//i.test(imageUrl)) {
+        // external (AEM asset-delivery) URL — use a plain <img>
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = entry.productName || '';
+        img.loading = 'lazy';
+        media.append(img);
+      } else {
+        media.append(createOptimizedPicture(imageUrl, entry.productName || '', false, [{ width: '400' }]));
+      }
       card.append(media);
     }
 

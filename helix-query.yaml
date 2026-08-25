@@ -23,6 +23,10 @@ indices:
         value: |
           textContent(el)
       image:
-        select: .product-details > div:nth-child(1) img
+        select: .product-details > div:nth-child(1) > div:nth-child(2) a
+        value: |
+          attribute(el, 'href')
+      imageSrc:
+        select: .product-details > div:nth-child(1) > div:nth-child(2) img
         value: |
           attribute(el, 'src')

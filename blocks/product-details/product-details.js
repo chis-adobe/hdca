@@ -1,5 +1,3 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-
 /**
  * Product Details block — PIM-style spec sheet.
  *
@@ -22,6 +20,11 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
  */
 
 const norm = (s) => s.trim().toLowerCase();
+
+// true when a URL points at an image (by extension or AEM asset-delivery path)
+function isImageUrl(url) {
+  return /\.(avif|webp|png|jpe?g|gif|svg)(\?|$)/i.test(url) || /\/adobe\/assets\//i.test(url);
+}
 
 // labels that render in the header/intro area → slot name
 const INTRO_SLOTS = new Map([
@@ -67,14 +70,26 @@ export default function decorate(block) {
     table.append(dt, dd);
   });
 
-  // media — collect every image in the Primary Images cell (supports multiple)
+  // media — collect every image in the Primary Images cell (supports multiple).
+  // Images may be authored as <picture>/<img>, or as links to an AEM asset-delivery
+  // URL (DA image links). Both are supported.
   const imagesCell = slots.get('images');
   if (imagesCell) {
-    imagesCell.querySelectorAll('picture').forEach((pic) => media.append(pic));
-    media.querySelectorAll('picture > img').forEach((img) => {
-      if (!img.getAttribute('src')) return; // skip empty placeholder images
-      const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-      img.closest('picture').replaceWith(optimized);
+    // 1) real <picture>/<img> with a src
+    imagesCell.querySelectorAll('picture').forEach((pic) => {
+      const img = pic.querySelector('img');
+      if (img && img.getAttribute('src')) media.append(pic);
+    });
+    // 2) links that point at an image asset → render as <img>
+    imagesCell.querySelectorAll('a[href]').forEach((a) => {
+      if (!isImageUrl(a.href)) return;
+      const img = document.createElement('img');
+      img.src = a.href;
+      img.loading = 'lazy';
+      img.alt = '';
+      const pic = document.createElement('picture');
+      pic.append(img);
+      media.append(pic);
     });
   }
 
