@@ -6,19 +6,23 @@
       "model": "hero",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture><h1></h1></div></div></div>",
+          "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><h2></h2></div></div><div><div>background-image</div></div></div>",
           "fields": [
             {
               "name": "image",
-              "selector": "div>div>picture>img[src]"
+              "selector": "div:nth-child(1) picture > img[src]"
             },
             {
               "name": "imageAlt",
-              "selector": "div>div>picture>img[alt]"
+              "selector": "div:nth-child(1) picture > img[alt]"
             },
             {
               "name": "text",
-              "selector": "div>div>h1"
+              "selector": "div:nth-child(2)>div"
+            },
+            {
+              "name": "style",
+              "selector": "div:nth-child(3)>div"
             }
           ]
         }
@@ -44,11 +48,22 @@
           "value": ""
         },
         {
-          "component": "text",
+          "component": "richtext",
           "name": "text",
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "style",
+          "label": "Style",
+          "value": "background-image",
+          "valueType": "string",
+          "options": [
+            { "name": "Background Image", "value": "background-image" },
+            { "name": "Left Image", "value": "left-image" }
+          ]
         }
       ]
     }

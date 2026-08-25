@@ -196,11 +196,28 @@
         "value": ""
       },
       {
-        "component": "text",
+        "component": "richtext",
         "name": "text",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "value": "background-image",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Background Image",
+            "value": "background-image"
+          },
+          {
+            "name": "Left Image",
+            "value": "left-image"
+          }
+        ]
       }
     ]
   },
