@@ -269,6 +269,7 @@ export default [
         section: 30, // section is a key-value block and over 4 is OK
         'section-title': 10, // title, types, sizes, alignment, tone, subtitle fields
         'carousel-item': 6,
+        'product-details': 21, // PIM-style spec sheet: one cell per metadata field
       }],
       'xwalk/no-custom-resource-types': 0, // da won't have them
       // it's 2026, we can afford to have longer lines
@@ -281,6 +282,15 @@ export default [
     files: ['eslint.config.mjs'],
     rules: {
       'import/no-extraneous-dependencies': 'off',
+    },
+  },
+  {
+    // product-details models a PIM schema whose field names are fixed by the source system;
+    // `warrantyText` is a standalone value, not an image/collapsible group, so the orphan
+    // collapsible-field heuristic does not apply here.
+    files: ['component-models.json', 'ue/models/blocks/product-details.json'],
+    rules: {
+      'xwalk/no-orphan-collapsible-fields': 'off',
     },
   },
 ];

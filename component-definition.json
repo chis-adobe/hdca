@@ -424,6 +424,106 @@
               ]
             }
           }
+        },
+        {
+          "title": "Product Details",
+          "id": "product-details",
+          "model": "product-details",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"product-details\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div>",
+              "fields": [
+                {
+                  "name": "primaryImage",
+                  "selector": "div:nth-child(1) picture > img[src]"
+                },
+                {
+                  "name": "primaryImageAlt",
+                  "selector": "div:nth-child(1) picture > img[alt]"
+                },
+                {
+                  "name": "productName",
+                  "selector": "div:nth-child(2)>div"
+                },
+                {
+                  "name": "brand",
+                  "selector": "div:nth-child(3)>div"
+                },
+                {
+                  "name": "price",
+                  "selector": "div:nth-child(4)>div"
+                },
+                {
+                  "name": "shortDescription",
+                  "selector": "div:nth-child(5)>div"
+                },
+                {
+                  "name": "keyFeatures",
+                  "selector": "div:nth-child(6)>div"
+                },
+                {
+                  "name": "sku",
+                  "selector": "div:nth-child(7)>div"
+                },
+                {
+                  "name": "modelNumber",
+                  "selector": "div:nth-child(8)>div"
+                },
+                {
+                  "name": "breadcrumbCategory",
+                  "selector": "div:nth-child(9)>div"
+                },
+                {
+                  "name": "colourFamily",
+                  "selector": "div:nth-child(10)>div"
+                },
+                {
+                  "name": "assembledDepthIn",
+                  "selector": "div:nth-child(11)>div"
+                },
+                {
+                  "name": "assembledHeightIn",
+                  "selector": "div:nth-child(12)>div"
+                },
+                {
+                  "name": "assembledWidthIn",
+                  "selector": "div:nth-child(13)>div"
+                },
+                {
+                  "name": "assembledWeightLbs",
+                  "selector": "div:nth-child(14)>div"
+                },
+                {
+                  "name": "packagedDepthIn",
+                  "selector": "div:nth-child(15)>div"
+                },
+                {
+                  "name": "packagedHeightIn",
+                  "selector": "div:nth-child(16)>div"
+                },
+                {
+                  "name": "packagedWidthIn",
+                  "selector": "div:nth-child(17)>div"
+                },
+                {
+                  "name": "packagedWeightLbs",
+                  "selector": "div:nth-child(18)>div"
+                },
+                {
+                  "name": "reviewCount",
+                  "selector": "div:nth-child(19)>div"
+                },
+                {
+                  "name": "warrantyText",
+                  "selector": "div:nth-child(20)>div"
+                },
+                {
+                  "name": "sourceUrl",
+                  "selector": "div:nth-child(21)>div>a[href]"
+                }
+              ]
+            }
+          }
         }
       ]
     }

@@ -1,0 +1,68 @@
+{
+  "definitions": [
+    {
+      "title": "Product Details",
+      "id": "product-details",
+      "model": "product-details",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"product-details\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div>",
+          "fields": [
+            { "name": "primaryImage", "selector": "div:nth-child(1) picture > img[src]" },
+            { "name": "primaryImageAlt", "selector": "div:nth-child(1) picture > img[alt]" },
+            { "name": "productName", "selector": "div:nth-child(2)>div" },
+            { "name": "brand", "selector": "div:nth-child(3)>div" },
+            { "name": "price", "selector": "div:nth-child(4)>div" },
+            { "name": "shortDescription", "selector": "div:nth-child(5)>div" },
+            { "name": "keyFeatures", "selector": "div:nth-child(6)>div" },
+            { "name": "sku", "selector": "div:nth-child(7)>div" },
+            { "name": "modelNumber", "selector": "div:nth-child(8)>div" },
+            { "name": "breadcrumbCategory", "selector": "div:nth-child(9)>div" },
+            { "name": "colourFamily", "selector": "div:nth-child(10)>div" },
+            { "name": "assembledDepthIn", "selector": "div:nth-child(11)>div" },
+            { "name": "assembledHeightIn", "selector": "div:nth-child(12)>div" },
+            { "name": "assembledWidthIn", "selector": "div:nth-child(13)>div" },
+            { "name": "assembledWeightLbs", "selector": "div:nth-child(14)>div" },
+            { "name": "packagedDepthIn", "selector": "div:nth-child(15)>div" },
+            { "name": "packagedHeightIn", "selector": "div:nth-child(16)>div" },
+            { "name": "packagedWidthIn", "selector": "div:nth-child(17)>div" },
+            { "name": "packagedWeightLbs", "selector": "div:nth-child(18)>div" },
+            { "name": "reviewCount", "selector": "div:nth-child(19)>div" },
+            { "name": "warrantyText", "selector": "div:nth-child(20)>div" },
+            { "name": "sourceUrl", "selector": "div:nth-child(21)>div>a[href]" }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "product-details",
+      "fields": [
+        { "component": "reference", "valueType": "string", "name": "primaryImage", "label": "Primary Image", "multi": false },
+        { "component": "text", "valueType": "string", "name": "primaryImageAlt", "label": "Primary Image Alt", "value": "" },
+        { "component": "text", "valueType": "string", "name": "productName", "label": "Product Name", "value": "" },
+        { "component": "text", "valueType": "string", "name": "brand", "label": "Brand", "value": "" },
+        { "component": "text", "valueType": "string", "name": "price", "label": "Price", "value": "" },
+        { "component": "richtext", "valueType": "string", "name": "shortDescription", "label": "Short Description", "value": "" },
+        { "component": "richtext", "valueType": "string", "name": "keyFeatures", "label": "Key Features", "value": "" },
+        { "component": "text", "valueType": "string", "name": "sku", "label": "SKU", "value": "" },
+        { "component": "text", "valueType": "string", "name": "modelNumber", "label": "Model Number", "value": "" },
+        { "component": "text", "valueType": "string", "name": "breadcrumbCategory", "label": "Breadcrumb Category", "value": "" },
+        { "component": "text", "valueType": "string", "name": "colourFamily", "label": "Colour Family", "value": "" },
+        { "component": "number", "valueType": "number", "name": "assembledDepthIn", "label": "Assembled Depth (in)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "assembledHeightIn", "label": "Assembled Height (in)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "assembledWidthIn", "label": "Assembled Width (in)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "assembledWeightLbs", "label": "Assembled Weight (lbs)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "packagedDepthIn", "label": "Packaged Depth (in)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "packagedHeightIn", "label": "Packaged Height (in)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "packagedWidthIn", "label": "Packaged Width (in)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "packagedWeightLbs", "label": "Packaged Weight (lbs)", "value": "" },
+        { "component": "number", "valueType": "number", "name": "reviewCount", "label": "Review Count", "value": "" },
+        { "component": "text", "valueType": "string", "name": "warrantyText", "label": "Warranty Text", "value": "" },
+        { "component": "aem-content", "valueType": "string", "name": "sourceUrl", "label": "Source URL", "value": "" }
+      ]
+    }
+  ],
+  "filters": []
+}

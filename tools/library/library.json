@@ -3,8 +3,9 @@
   ":version": 3,
   ":type": "multi-sheet",
   "blocks": {
-    "total": 12, "limit": 12, "offset": 0,
+    "total": 13, "limit": 13, "offset": 0,
     "data": [
+      { "name": "Product Details", "path": "/tools/library/blocks/product-details" },
       { "name": "Cards", "path": "/tools/library/blocks/cards" },
       { "name": "Card Carousel", "path": "/tools/library/blocks/card-carousel" },
       { "name": "Carousel", "path": "/tools/library/blocks/carousel" },

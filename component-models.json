@@ -536,5 +536,164 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "product-details",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "primaryImage",
+        "label": "Primary Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "primaryImageAlt",
+        "label": "Primary Image Alt",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "productName",
+        "label": "Product Name",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "brand",
+        "label": "Brand",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "price",
+        "label": "Price",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "shortDescription",
+        "label": "Short Description",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "keyFeatures",
+        "label": "Key Features",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "sku",
+        "label": "SKU",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "modelNumber",
+        "label": "Model Number",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "breadcrumbCategory",
+        "label": "Breadcrumb Category",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "colourFamily",
+        "label": "Colour Family",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "assembledDepthIn",
+        "label": "Assembled Depth (in)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "assembledHeightIn",
+        "label": "Assembled Height (in)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "assembledWidthIn",
+        "label": "Assembled Width (in)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "assembledWeightLbs",
+        "label": "Assembled Weight (lbs)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "packagedDepthIn",
+        "label": "Packaged Depth (in)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "packagedHeightIn",
+        "label": "Packaged Height (in)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "packagedWidthIn",
+        "label": "Packaged Width (in)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "packagedWeightLbs",
+        "label": "Packaged Weight (lbs)",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "reviewCount",
+        "label": "Review Count",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "warrantyText",
+        "label": "Warranty Text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "sourceUrl",
+        "label": "Source URL",
+        "value": ""
+      }
+    ]
   }
 ]
