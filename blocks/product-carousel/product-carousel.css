@@ -1,0 +1,117 @@
+.product-carousel {
+  margin: 0 auto;
+  max-width: var(--max-width-site);
+}
+
+/* promo tile */
+.product-carousel .product-carousel-promo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-m);
+  background-color: var(--light-color);
+  min-height: 200px;
+}
+
+.product-carousel .product-carousel-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.product-carousel .product-carousel-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-carousel .product-carousel-promo-body {
+  position: relative;
+  z-index: 1;
+  padding: var(--spacing-l);
+}
+
+.product-carousel .product-carousel-thumb {
+  position: absolute;
+  top: var(--spacing-m);
+  left: var(--spacing-m);
+  width: 56px;
+  height: auto;
+}
+
+.product-carousel .product-carousel-thumb img {
+  width: 100%;
+  height: auto;
+}
+
+.product-carousel .product-carousel-promo-body h2 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-m);
+}
+
+.product-carousel .product-carousel-promo-body p {
+  margin: var(--spacing-xs) 0 var(--spacing-s);
+  color: var(--text-color);
+}
+
+/* product rail */
+.product-carousel .product-carousel-rail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-m);
+  list-style: none;
+  margin: var(--spacing-l) 0 0;
+  padding: 0;
+}
+
+.product-carousel .product-carousel-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  height: 100%;
+  padding: var(--spacing-s);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-m);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.product-carousel .product-carousel-card:hover {
+  border-color: var(--brand-primary);
+}
+
+.product-carousel .product-carousel-card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius-s);
+}
+
+.product-carousel .product-carousel-card-name {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.3;
+}
+
+.product-carousel .product-carousel-card-price {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+@media (width >= 600px) {
+  .product-carousel .product-carousel-rail {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .product-carousel .product-carousel-promo-body {
+    padding: var(--spacing-xl);
+    max-width: 60%;
+  }
+
+  .product-carousel .product-carousel-rail {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

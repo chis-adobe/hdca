@@ -270,6 +270,7 @@ export default [
         'section-title': 10, // title, types, sizes, alignment, tone, subtitle fields
         'carousel-item': 6,
         'product-details': 21, // PIM-style spec sheet: one cell per metadata field
+        'product-carousel': 6, // promo (bg, thumb, heading, desc, cta) + products list
       }],
       'xwalk/no-custom-resource-types': 0, // da won't have them
       // it's 2026, we can afford to have longer lines

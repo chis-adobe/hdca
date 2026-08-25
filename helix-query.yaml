@@ -1,0 +1,28 @@
+version: 1
+
+indices:
+  products:
+    include:
+      - '/fragments/products/**'
+    target: /product-index.json
+    properties:
+      productName:
+        select: .product-details > div:nth-child(2) > div:nth-child(2)
+        value: |
+          textContent(el)
+      brand:
+        select: .product-details > div:nth-child(3) > div:nth-child(2)
+        value: |
+          textContent(el)
+      price:
+        select: .product-details > div:nth-child(4) > div:nth-child(2)
+        value: |
+          textContent(el)
+      sku:
+        select: .product-details > div:nth-child(7) > div:nth-child(2)
+        value: |
+          textContent(el)
+      image:
+        select: .product-details > div:nth-child(1) img
+        value: |
+          attribute(el, 'src')

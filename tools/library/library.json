@@ -1,34 +1,98 @@
 {
-  ":names": ["blocks", "templates", "icons"],
+  ":names": [
+    "blocks",
+    "templates",
+    "icons"
+  ],
   ":version": 3,
   ":type": "multi-sheet",
   "blocks": {
-    "total": 13, "limit": 13, "offset": 0,
+    "total": 14,
+    "limit": 14,
+    "offset": 0,
     "data": [
-      { "name": "Product Details", "path": "/tools/library/blocks/product-details" },
-      { "name": "Cards", "path": "/tools/library/blocks/cards" },
-      { "name": "Card Carousel", "path": "/tools/library/blocks/card-carousel" },
-      { "name": "Carousel", "path": "/tools/library/blocks/carousel" },
-      { "name": "Columns", "path": "/tools/library/blocks/columns" },
-      { "name": "Hero", "path": "/tools/library/blocks/hero" },
-      { "name": "Accordion", "path": "/tools/library/blocks/accordion" },
-      { "name": "Tabs", "path": "/tools/library/blocks/tabs" },
-      { "name": "Section Title", "path": "/tools/library/blocks/section-title" },
-      { "name": "Quote", "path": "/tools/library/blocks/quote" },
-      { "name": "Embed", "path": "/tools/library/blocks/embed" },
-      { "name": "Video", "path": "/tools/library/blocks/video" },
-      { "name": "Fragment", "path": "/tools/library/blocks/fragment" }
+      {
+        "name": "Product Carousel",
+        "path": "/tools/library/blocks/product-carousel"
+      },
+      {
+        "name": "Product Details",
+        "path": "/tools/library/blocks/product-details"
+      },
+      {
+        "name": "Cards",
+        "path": "/tools/library/blocks/cards"
+      },
+      {
+        "name": "Card Carousel",
+        "path": "/tools/library/blocks/card-carousel"
+      },
+      {
+        "name": "Carousel",
+        "path": "/tools/library/blocks/carousel"
+      },
+      {
+        "name": "Columns",
+        "path": "/tools/library/blocks/columns"
+      },
+      {
+        "name": "Hero",
+        "path": "/tools/library/blocks/hero"
+      },
+      {
+        "name": "Accordion",
+        "path": "/tools/library/blocks/accordion"
+      },
+      {
+        "name": "Tabs",
+        "path": "/tools/library/blocks/tabs"
+      },
+      {
+        "name": "Section Title",
+        "path": "/tools/library/blocks/section-title"
+      },
+      {
+        "name": "Quote",
+        "path": "/tools/library/blocks/quote"
+      },
+      {
+        "name": "Embed",
+        "path": "/tools/library/blocks/embed"
+      },
+      {
+        "name": "Video",
+        "path": "/tools/library/blocks/video"
+      },
+      {
+        "name": "Fragment",
+        "path": "/tools/library/blocks/fragment"
+      }
     ],
     ":type": "sheet"
   },
   "templates": {
-    "total": 1, "limit": 1, "offset": 0,
-    "data": [ { "name": "Standard Page", "path": "/templates/standard" } ],
+    "total": 1,
+    "limit": 1,
+    "offset": 0,
+    "data": [
+      {
+        "name": "Standard Page",
+        "path": "/templates/standard"
+      }
+    ],
     ":type": "sheet"
   },
   "icons": {
-    "total": 1, "limit": 1, "offset": 0,
-    "data": [ { "key": "search", "value": "search", "icon": "search" } ],
+    "total": 1,
+    "limit": 1,
+    "offset": 0,
+    "data": [
+      {
+        "key": "search",
+        "value": "search",
+        "icon": "search"
+      }
+    ],
     ":type": "sheet"
   }
 }
