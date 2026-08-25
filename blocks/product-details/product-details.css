@@ -10,6 +10,12 @@
   gap: var(--spacing-l);
 }
 
+.product-details .product-details-media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+}
+
 .product-details .product-details-media picture,
 .product-details .product-details-media img {
   display: block;
@@ -18,6 +24,12 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-m);
   background-color: var(--light-color);
+}
+
+/* when multiple images are present, show them as a grid of thumbnails */
+.product-details .product-details-media picture:not(:only-child),
+.product-details .product-details-media img:not(:only-child) {
+  width: calc(50% - (var(--spacing-s) / 2));
 }
 
 .product-details .product-details-intro h1,

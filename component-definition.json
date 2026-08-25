@@ -431,95 +431,95 @@
           "model": "product-details",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"product-details\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div>",
+              "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
               "fields": [
                 {
                   "name": "primaryImage",
-                  "selector": "div:nth-child(1) picture > img[src]"
+                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]"
                 },
                 {
                   "name": "primaryImageAlt",
-                  "selector": "div:nth-child(1) picture > img[alt]"
+                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]"
                 },
                 {
                   "name": "productName",
-                  "selector": "div:nth-child(2)>div"
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
                 },
                 {
                   "name": "brand",
-                  "selector": "div:nth-child(3)>div"
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
                 },
                 {
                   "name": "price",
-                  "selector": "div:nth-child(4)>div"
+                  "selector": "div:nth-child(4)>div:nth-child(2)"
                 },
                 {
                   "name": "shortDescription",
-                  "selector": "div:nth-child(5)>div"
+                  "selector": "div:nth-child(5)>div:nth-child(2)"
                 },
                 {
                   "name": "keyFeatures",
-                  "selector": "div:nth-child(6)>div"
+                  "selector": "div:nth-child(6)>div:nth-child(2)"
                 },
                 {
                   "name": "sku",
-                  "selector": "div:nth-child(7)>div"
+                  "selector": "div:nth-child(7)>div:nth-child(2)"
                 },
                 {
                   "name": "modelNumber",
-                  "selector": "div:nth-child(8)>div"
+                  "selector": "div:nth-child(8)>div:nth-child(2)"
                 },
                 {
                   "name": "breadcrumbCategory",
-                  "selector": "div:nth-child(9)>div"
+                  "selector": "div:nth-child(9)>div:nth-child(2)"
                 },
                 {
                   "name": "colourFamily",
-                  "selector": "div:nth-child(10)>div"
+                  "selector": "div:nth-child(10)>div:nth-child(2)"
                 },
                 {
                   "name": "assembledDepthIn",
-                  "selector": "div:nth-child(11)>div"
+                  "selector": "div:nth-child(11)>div:nth-child(2)"
                 },
                 {
                   "name": "assembledHeightIn",
-                  "selector": "div:nth-child(12)>div"
+                  "selector": "div:nth-child(12)>div:nth-child(2)"
                 },
                 {
                   "name": "assembledWidthIn",
-                  "selector": "div:nth-child(13)>div"
+                  "selector": "div:nth-child(13)>div:nth-child(2)"
                 },
                 {
                   "name": "assembledWeightLbs",
-                  "selector": "div:nth-child(14)>div"
+                  "selector": "div:nth-child(14)>div:nth-child(2)"
                 },
                 {
                   "name": "packagedDepthIn",
-                  "selector": "div:nth-child(15)>div"
+                  "selector": "div:nth-child(15)>div:nth-child(2)"
                 },
                 {
                   "name": "packagedHeightIn",
-                  "selector": "div:nth-child(16)>div"
+                  "selector": "div:nth-child(16)>div:nth-child(2)"
                 },
                 {
                   "name": "packagedWidthIn",
-                  "selector": "div:nth-child(17)>div"
+                  "selector": "div:nth-child(17)>div:nth-child(2)"
                 },
                 {
                   "name": "packagedWeightLbs",
-                  "selector": "div:nth-child(18)>div"
+                  "selector": "div:nth-child(18)>div:nth-child(2)"
                 },
                 {
                   "name": "reviewCount",
-                  "selector": "div:nth-child(19)>div"
+                  "selector": "div:nth-child(19)>div:nth-child(2)"
                 },
                 {
                   "name": "warrantyText",
-                  "selector": "div:nth-child(20)>div"
+                  "selector": "div:nth-child(20)>div:nth-child(2)"
                 },
                 {
                   "name": "sourceUrl",
-                  "selector": "div:nth-child(21)>div>a[href]"
+                  "selector": "div:nth-child(21)>div:nth-child(2)>a[href]"
                 }
               ]
             }
