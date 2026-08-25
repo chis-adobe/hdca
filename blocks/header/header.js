@@ -76,7 +76,9 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  // On mobile the drawer opens with all sections collapsed (accordion — tap to expand),
+  // matching the source. Desktop keeps sections collapsed too until hovered/clicked.
+  toggleAllNavSections(navSections, false);
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   if (navSections) {
@@ -179,10 +181,16 @@ async function buildBreadcrumbs() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
+  // load nav as fragment — content lives in the authored fragment (DA: /fragments/page/header,
+  // local preview: /content/nav). All labels/links come from that DOM, never hardcoded here.
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/content/nav';
+  let fragment = await loadFragment(navPath);
+  // local-dev fallback: aem up serves the fragment at /content/nav.plain.html
+  if (!fragment && navPath !== '/content/nav') {
+    fragment = await loadFragment('/content/nav');
+  }
+  if (!fragment) return;
 
   // decorate nav DOM
   block.textContent = '';
@@ -207,11 +215,19 @@ export default async function decorate(block) {
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
+      navSection.addEventListener('click', (e) => {
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
         if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        } else if (navSection.classList.contains('nav-drop')) {
+          // mobile accordion: tapping the top-level label toggles its sublist in place.
+          // Clicks on nested links (inside the sublist) pass through to navigate.
+          const directLink = navSection.querySelector(':scope > a');
+          if (!directLink || e.target === directLink || e.target === navSection) {
+            e.preventDefault();
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          }
         }
       });
     });

@@ -17,3 +17,4 @@ Trace*.json
 # Playwright / a11y test artifacts
 playwright-report/
 test-results/
+migration-work/navigation-validation/

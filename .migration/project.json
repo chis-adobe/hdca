@@ -1,7 +1,17 @@
 {
-  "libraryUrl": "https://main--ise-boilerplate--aemdemos.aem.page/docs/library/blocks.json",
   "type": "da",
-  "contentHostUrl": "https://content.da.live/aemdemos/ise-boilerplate/",
-  "previewOrg": "aemdemos",
-  "previewSite": "ise-boilerplate"
+  "sites": {
+    "ise-boilerplate": {
+      "libraryUrl": "https://main--ise-boilerplate--aemdemos.aem.page/docs/library/blocks.json",
+      "contentHostUrl": "https://content.da.live/aemdemos/ise-boilerplate/",
+      "previewOrg": "aemdemos",
+      "previewSite": "ise-boilerplate"
+    },
+    "hdca": {
+      "libraryUrl": "https://main--hdca--chis-adobe.aem.page/docs/library/blocks.json",
+      "previewOrg": "chis-adobe",
+      "previewSite": "hdca",
+      "contentHostUrl": "https://content.da.live/chis-adobe/hdca/"
+    }
+  }
 }
