@@ -22,6 +22,22 @@ indices:
         select: .product-details > div:nth-child(7) > div:nth-child(2)
         value: |
           textContent(el)
+      reviewCount:
+        select: .product-details > div:nth-child(19) > div:nth-child(2)
+        value: |
+          textContent(el)
+      rating:
+        select: .product-details > div:nth-child(21) > div:nth-child(2)
+        value: |
+          textContent(el)
+      savings:
+        select: .product-details > div:nth-child(22) > div:nth-child(2)
+        value: |
+          textContent(el)
+      originalPrice:
+        select: .product-details > div:nth-child(23) > div:nth-child(2)
+        value: |
+          textContent(el)
       image:
         select: .product-details > div:nth-child(1) > div:nth-child(2) a
         value: |
