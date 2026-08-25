@@ -756,5 +756,17 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "popular-searches",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Content (heading + links)",
+        "value": ""
+      }
+    ]
   }
 ]

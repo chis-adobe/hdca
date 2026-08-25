@@ -5,7 +5,8 @@ header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
   z-index: 2;
-  position: fixed;
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -204,8 +205,21 @@ header .nav-brand {
   line-height: 1;
 }
 
+header nav .nav-brand a {
+  display: inline-flex;
+  align-items: center;
+}
+
+header nav .nav-brand .icon-hd-logo,
 header nav .nav-brand img {
+  display: block;
   width: var(--header-brand-width);
+  height: auto;
+}
+
+/* the icon <img> injected by decorateIcons carries width/height=16 attrs — override */
+header nav .nav-brand .icon-hd-logo img {
+  width: 100%;
   height: auto;
 }
 

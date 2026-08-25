@@ -568,6 +568,22 @@
               ]
             }
           }
+        },
+        {
+          "title": "Popular Searches",
+          "id": "popular-searches",
+          "model": "popular-searches",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"popular-searches\"><div><div><h2>Popular Searches</h2><ul><li><a href=\"#\">Search term</a></li></ul></div></div></div>",
+              "fields": [
+                {
+                  "name": "content",
+                  "selector": "div>div"
+                }
+              ]
+            }
+          }
         }
       ]
     }

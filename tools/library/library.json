@@ -7,8 +7,8 @@
   ":version": 3,
   ":type": "multi-sheet",
   "blocks": {
-    "total": 14,
-    "limit": 14,
+    "total": 15,
+    "limit": 15,
     "offset": 0,
     "data": [
       {
@@ -66,6 +66,10 @@
       {
         "name": "Fragment",
         "path": "/tools/library/blocks/fragment"
+      },
+      {
+        "name": "Popular Searches",
+        "path": "/tools/library/blocks/popular-searches"
       }
     ],
     ":type": "sheet"

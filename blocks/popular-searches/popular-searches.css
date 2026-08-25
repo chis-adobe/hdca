@@ -1,0 +1,52 @@
+.popular-searches {
+  margin: 0 auto;
+  max-width: var(--max-width-site);
+}
+
+.popular-searches .popular-searches-title {
+  margin: 0 0 var(--spacing-s);
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+}
+
+.popular-searches .popular-searches-chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-s);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popular-searches .popular-searches-chips li {
+  margin: 0;
+}
+
+.popular-searches .popular-searches-chip {
+  display: block;
+  padding: var(--spacing-s) var(--spacing-m);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.popular-searches .popular-searches-chip:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+@media (width >= 600px) {
+  .popular-searches .popular-searches-chips {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .popular-searches .popular-searches-chips {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
