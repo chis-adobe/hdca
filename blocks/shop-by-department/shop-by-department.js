@@ -51,7 +51,7 @@ export default async function decorate(block) {
     const media = document.createElement('div');
     media.className = 'shop-by-department-tile-image';
     const imageUrl = entry && entry.image;
-    if (imageUrl) {
+    if (imageUrl && imageUrl !== 'about:error') {
       const img = document.createElement('img');
       img.src = imageUrl;
       img.alt = (entry && entry.title) || '';

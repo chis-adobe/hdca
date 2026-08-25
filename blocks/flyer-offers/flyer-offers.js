@@ -71,7 +71,8 @@ function buildCard(entry, link) {
   card.className = 'flyer-offers-card';
   card.href = path;
 
-  const imageUrl = entry && (entry.image || entry.imageSrc);
+  const rawImage = entry && (entry.image || entry.imageSrc);
+  const imageUrl = rawImage && rawImage !== 'about:error' ? rawImage : '';
   const media = document.createElement('div');
   media.className = 'flyer-offers-card-image';
   if (imageUrl) {

@@ -125,7 +125,8 @@ function buildCard(entry, link) {
   card.className = 'product-carousel-card';
   card.href = path;
 
-  const imageUrl = entry && (entry.image || entry.imageSrc);
+  const rawImage = entry && (entry.image || entry.imageSrc);
+  const imageUrl = rawImage && rawImage !== 'about:error' ? rawImage : '';
   const media = document.createElement('div');
   media.className = 'product-carousel-card-image';
   const img = imageFromUrl(imageUrl, entry && entry.productName);
