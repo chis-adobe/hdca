@@ -1,14 +1,17 @@
 /**
- * Hero block — image + text with a style variant.
+ * Hero block — image + text + CTA, laid out as 3 rows × 2 columns.
  *
- * Authored structure (3 rows, one cell each):
- *   row 0: image  (a <picture>/<img>, or a link to an image asset)
- *   row 1: text   (heading, description, CTA link)
- *   row 2: style  (one of: "background-image", "left-image")
+ * Authored structure:
+ *   row 0: [ image ]            [ image style ]   image style: background-image | left-image
+ *   row 1: [ text  ]            [ (reserved)   ]   text = heading + paragraph(s) in one cell
+ *   row 2: [ CTA   ]            [ cta style    ]   cta style: primary | link
  *
- * Styles:
+ * Image styles:
  *   - background-image: image fills the hero behind the text (text overlaid)
  *   - left-image:       image on the left, text on the right
+ * CTA styles:
+ *   - primary: filled button
+ *   - link:    plain text link
  *
  * Images may be authored as links to AEM asset-delivery URLs; this block turns
  * those links into <img> elements (the EDS pipeline blanks site-path <img> tags).
@@ -16,47 +19,77 @@
  * @param {Element} block
  */
 
-const KNOWN_STYLES = ['background-image', 'left-image'];
+const IMAGE_STYLES = ['background-image', 'left-image'];
+const CTA_STYLES = ['primary', 'link'];
 
 function isImageUrl(url) {
   return /\.(avif|webp|png|jpe?g|gif|svg)(\?|$)/i.test(url) || /\/adobe\/assets\//i.test(url);
 }
 
+// pick the matching keyword from a cell's text, or '' if none/no cell
+function readStyle(cell, allowed) {
+  if (!cell) return '';
+  const text = cell.textContent.trim().toLowerCase();
+  return allowed.find((s) => text.includes(s)) || '';
+}
+
+// turn a link-to-image-asset inside a cell into a <picture><img>
+function normaliseImage(cell) {
+  if (!cell || cell.querySelector('img')) return;
+  const link = [...cell.querySelectorAll('a[href]')].find((a) => isImageUrl(a.href));
+  if (!link) return;
+  const img = document.createElement('img');
+  img.src = link.href;
+  img.loading = 'lazy';
+  img.alt = '';
+  const picture = document.createElement('picture');
+  picture.append(img);
+  link.replaceWith(picture);
+}
+
 export default function decorate(block) {
-  const rows = [...block.children];
+  const [imageRow, textRow, ctaRow] = [...block.children];
+  const cells = (row) => (row ? [...row.children] : []);
+  const [imageCell, imageStyleCell] = cells(imageRow);
+  const [textCell] = cells(textRow);
+  const [ctaCell, ctaStyleCell] = cells(ctaRow);
 
-  // row 2: style — read and remove so it isn't rendered
-  let variant = '';
-  if (rows.length >= 3) {
-    const styleText = rows[2].textContent.trim().toLowerCase();
-    variant = KNOWN_STYLES.find((s) => styleText.includes(s)) || '';
-    rows[2].remove();
-  }
-  if (variant) block.classList.add(variant);
+  const imageStyle = readStyle(imageStyleCell, IMAGE_STYLES);
+  const ctaStyle = readStyle(ctaStyleCell, CTA_STYLES);
 
-  // row 0: image — normalise a link-to-asset into an <img>
-  const imageCell = rows[0];
+  if (imageStyle) block.classList.add(imageStyle);
+
+  // build the parts fresh so we control the 2-column authoring vs rendered layout
+  const image = document.createElement('div');
+  image.className = 'hero-image';
   if (imageCell) {
-    imageCell.classList.add('hero-image');
-    if (!imageCell.querySelector('img')) {
-      const link = [...imageCell.querySelectorAll('a[href]')].find((a) => isImageUrl(a.href));
-      if (link) {
-        const img = document.createElement('img');
-        img.src = link.href;
-        img.loading = 'lazy';
-        img.alt = '';
-        const picture = document.createElement('picture');
-        picture.append(img);
-        link.replaceWith(picture);
+    normaliseImage(imageCell);
+    while (imageCell.firstChild) image.append(imageCell.firstChild);
+  }
+
+  const text = document.createElement('div');
+  text.className = 'hero-text';
+  if (textCell) {
+    while (textCell.firstChild) text.append(textCell.firstChild);
+  }
+
+  // CTA: move any link into the text block, styled per cta style
+  if (ctaCell) {
+    const cta = ctaCell.querySelector('a');
+    if (cta) {
+      if (ctaStyle === 'link') {
+        cta.classList.add('hero-cta-link');
+      } else {
+        // default / primary → filled button
+        cta.classList.add('button');
       }
+      const ctaWrap = document.createElement('p');
+      ctaWrap.className = 'hero-cta';
+      ctaWrap.append(cta);
+      text.append(ctaWrap);
     }
   }
 
-  // row 1: text
-  if (rows[1]) {
-    rows[1].classList.add('hero-text');
-    // style the CTA link as a button
-    const cta = rows[1].querySelector('a');
-    if (cta) cta.classList.add('button');
-  }
+  block.textContent = '';
+  block.append(image, text);
 }

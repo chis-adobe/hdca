@@ -241,23 +241,35 @@
           "model": "hero",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><h2></h2></div></div><div><div>background-image</div></div></div>",
+              "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
               "fields": [
                 {
                   "name": "image",
-                  "selector": "div:nth-child(1) picture > img[src]"
+                  "selector": "div:nth-child(1)>div:nth-child(1) picture > img[src]"
                 },
                 {
                   "name": "imageAlt",
-                  "selector": "div:nth-child(1) picture > img[alt]"
+                  "selector": "div:nth-child(1)>div:nth-child(1) picture > img[alt]"
+                },
+                {
+                  "name": "imageStyle",
+                  "selector": "div:nth-child(1)>div:nth-child(2)"
                 },
                 {
                   "name": "text",
-                  "selector": "div:nth-child(2)>div"
+                  "selector": "div:nth-child(2)>div:nth-child(1)"
                 },
                 {
-                  "name": "style",
-                  "selector": "div:nth-child(3)>div"
+                  "name": "textStyle",
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
+                },
+                {
+                  "name": "cta",
+                  "selector": "div:nth-child(3)>div:nth-child(1)>a[href]"
+                },
+                {
+                  "name": "ctaStyle",
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
                 }
               ]
             }

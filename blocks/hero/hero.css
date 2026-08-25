@@ -34,6 +34,25 @@
   margin: var(--spacing-xs) 0 var(--spacing-m);
 }
 
+.hero .hero-cta {
+  margin-bottom: 0;
+}
+
+/* cta style: link (plain text link, not a filled button) */
+.hero .hero-cta-link {
+  color: var(--link-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero .hero-cta-link::after {
+  content: ' ›';
+}
+
+.hero .hero-cta-link:hover {
+  text-decoration: underline;
+}
+
 /* ---- variant: background-image (image fills hero, text overlaid) ---- */
 .hero.background-image .hero-image {
   position: absolute;

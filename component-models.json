@@ -196,16 +196,9 @@
         "value": ""
       },
       {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
         "component": "select",
-        "name": "style",
-        "label": "Style",
+        "name": "imageStyle",
+        "label": "Image Style",
         "value": "background-image",
         "valueType": "string",
         "options": [
@@ -216,6 +209,43 @@
           {
             "name": "Left Image",
             "value": "left-image"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "textStyle",
+        "label": "Text Style (reserved)",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta",
+        "label": "CTA Link",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "ctaStyle",
+        "label": "CTA Style",
+        "value": "primary",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Primary (button)",
+            "value": "primary"
+          },
+          {
+            "name": "Link",
+            "value": "link"
           }
         ]
       }

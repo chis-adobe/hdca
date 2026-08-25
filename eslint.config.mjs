@@ -271,6 +271,7 @@ export default [
         'carousel-item': 6,
         'product-details': 21, // PIM-style spec sheet: one cell per metadata field
         'product-carousel': 6, // promo (bg, thumb, heading, desc, cta) + products list
+        hero: 7, // 3x2 layout: image, imageStyle, text, textStyle, cta, ctaStyle
       }],
       'xwalk/no-custom-resource-types': 0, // da won't have them
       // it's 2026, we can afford to have longer lines
