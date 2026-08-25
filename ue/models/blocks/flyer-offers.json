@@ -1,0 +1,28 @@
+{
+  "definitions": [
+    {
+      "title": "Flyer Offers",
+      "id": "flyer-offers",
+      "model": "flyer-offers",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"flyer-offers\"><div><div>Check Out These Top Flyer Offers</div></div><div><div><ul><li><a href=\"/fragments/products/\">Product</a></li></ul></div></div></div>",
+          "fields": [
+            { "name": "title", "selector": "div:nth-child(1)>div" },
+            { "name": "products", "selector": "div:nth-child(2)>div" }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "flyer-offers",
+      "fields": [
+        { "component": "text", "valueType": "string", "name": "title", "label": "Title", "value": "" },
+        { "component": "richtext", "valueType": "string", "name": "products", "label": "Products (links to /fragments/products/{sku})", "value": "" }
+      ]
+    }
+  ],
+  "filters": []
+}

@@ -1,0 +1,72 @@
+.shop-by-department {
+  margin: 0 auto;
+  max-width: var(--max-width-site);
+}
+
+.shop-by-department .shop-by-department-title {
+  margin: 0 0 var(--spacing-m);
+  text-align: center;
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+.shop-by-department .shop-by-department-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-m);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shop-by-department .shop-by-department-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s);
+  height: 100%;
+  padding: var(--spacing-m);
+  background-color: var(--light-color);
+  border-radius: var(--border-radius-s);
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.shop-by-department .shop-by-department-tile-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-by-department .shop-by-department-tile-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.shop-by-department .shop-by-department-tile-label {
+  font-weight: 400;
+  text-align: center;
+}
+
+.shop-by-department .shop-by-department-tile-label::after {
+  content: ' ›';
+}
+
+.shop-by-department .shop-by-department-tile:hover .shop-by-department-tile-label {
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  .shop-by-department .shop-by-department-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .shop-by-department .shop-by-department-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

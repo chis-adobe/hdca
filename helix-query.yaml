@@ -46,3 +46,17 @@ indices:
         select: .product-details > div:nth-child(1) > div:nth-child(2) img
         value: |
           attribute(el, 'src')
+
+  departments:
+    include:
+      - '/dept/**'
+    target: /dept-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          attribute(el, 'content')

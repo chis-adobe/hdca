@@ -600,6 +600,42 @@
               ]
             }
           }
+        },
+        {
+          "title": "Flyer Offers",
+          "id": "flyer-offers",
+          "model": "flyer-offers",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"flyer-offers\"><div><div>Check Out These Top Flyer Offers</div></div><div><div><ul><li><a href=\"/fragments/products/\">Product</a></li></ul></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div"
+                },
+                {
+                  "name": "products",
+                  "selector": "div:nth-child(2)>div"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Shop by Department",
+          "id": "shop-by-department",
+          "model": "shop-by-department",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"shop-by-department\"><div><div><h2>Shop by Department</h2><ul><li><a href=\"/dept/\">Department</a></li></ul></div></div></div>",
+              "fields": [
+                {
+                  "name": "content",
+                  "selector": "div>div"
+                }
+              ]
+            }
+          }
         }
       ]
     }

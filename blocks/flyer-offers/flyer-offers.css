@@ -1,0 +1,103 @@
+.flyer-offers {
+  margin: 0 auto;
+  max-width: var(--max-width-site);
+  border: 2px solid var(--brand-primary);
+  border-radius: var(--border-radius-m);
+  padding: var(--spacing-l);
+}
+
+.flyer-offers .flyer-offers-title {
+  margin: 0 0 var(--spacing-m);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+.flyer-offers .flyer-offers-rail {
+  display: flex;
+  gap: var(--spacing-m);
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--spacing-s);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.flyer-offers .flyer-offers-rail > li {
+  flex: 0 0 auto;
+  width: 160px;
+  scroll-snap-align: start;
+}
+
+.flyer-offers .flyer-offers-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.flyer-offers .flyer-offers-card-image {
+  aspect-ratio: 1 / 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+.flyer-offers .flyer-offers-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.flyer-offers .flyer-offers-card-brand {
+  font-weight: 700;
+}
+
+.flyer-offers .flyer-offers-card-title {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.flyer-offers .flyer-offers-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 2px 0;
+  font-size: var(--body-font-size-xs);
+}
+
+.flyer-offers .flyer-offers-stars {
+  color: var(--brand-primary);
+  letter-spacing: 1px;
+}
+
+.flyer-offers .flyer-offers-rating-count {
+  color: var(--text-secondary-color);
+}
+
+.flyer-offers .flyer-offers-price {
+  margin-top: var(--spacing-xs);
+  font-weight: 700;
+  font-size: var(--body-font-size-m);
+}
+
+.flyer-offers .flyer-offers-per {
+  font-weight: 400;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-secondary-color);
+}
+
+.flyer-offers .flyer-offers-savings {
+  font-weight: 700;
+  font-size: var(--body-font-size-xs);
+  color: #367c2b;
+}
+
+.flyer-offers .flyer-offers-was {
+  font-size: var(--body-font-size-xs);
+  color: var(--text-secondary-color);
+}

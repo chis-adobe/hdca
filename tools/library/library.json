@@ -7,8 +7,8 @@
   ":version": 3,
   ":type": "multi-sheet",
   "blocks": {
-    "total": 15,
-    "limit": 15,
+    "total": 17,
+    "limit": 17,
     "offset": 0,
     "data": [
       {
@@ -70,6 +70,14 @@
       {
         "name": "Popular Searches",
         "path": "/tools/library/blocks/popular-searches"
+      },
+      {
+        "name": "Flyer Offers",
+        "path": "/tools/library/blocks/flyer-offers"
+      },
+      {
+        "name": "Shop by Department",
+        "path": "/tools/library/blocks/shop-by-department"
       }
     ],
     ":type": "sheet"
