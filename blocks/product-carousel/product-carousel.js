@@ -15,8 +15,8 @@
  * present), price, savings (if present) and original price (if present) on a white
  * card — data pulled from /product-index.json by the product's fragment path.
  *
- * Images (background, thumbnail, and product images) are authored as links to AEM
- * asset-delivery URLs; this block transforms those links into <img> elements.
+ * The banner background and thumbnail are standard authored images (<picture>/<img>);
+ * product card images come from /product-index.json (a src URL).
  */
 
 const norm = (s) => s.trim().toLowerCase();
@@ -30,11 +30,7 @@ const SLOTS = new Map([
   ['products', 'products'],
 ]);
 
-function isImageUrl(url) {
-  return /\.(avif|webp|png|jpe?g|gif|svg)(\?|$)/i.test(url) || /\/adobe\/assets\//i.test(url);
-}
-
-// Build an <img> from a cell that holds either an <img> or a link to an image asset.
+// Return the authored <img> from a cell, if present.
 function imageFromCell(cell, alt) {
   if (!cell) return null;
   const existing = cell.querySelector('img');
@@ -43,18 +39,10 @@ function imageFromCell(cell, alt) {
     if (alt && !existing.alt) existing.alt = alt;
     return existing;
   }
-  const link = [...cell.querySelectorAll('a[href]')].find((a) => isImageUrl(a.href));
-  if (link) {
-    const img = document.createElement('img');
-    img.src = link.href;
-    img.loading = 'lazy';
-    img.alt = alt || '';
-    return img;
-  }
   return null;
 }
 
-// Build an <img> from an index image URL (may be an asset-delivery href or a pipeline src).
+// Build an <img> from an index image URL (product card thumbnail).
 function imageFromUrl(url, alt) {
   if (!url) return null;
   const img = document.createElement('img');

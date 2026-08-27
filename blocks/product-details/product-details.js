@@ -21,11 +21,6 @@
 
 const norm = (s) => s.trim().toLowerCase();
 
-// true when a URL points at an image (by extension or AEM asset-delivery path)
-function isImageUrl(url) {
-  return /\.(avif|webp|png|jpe?g|gif|svg)(\?|$)/i.test(url) || /\/adobe\/assets\//i.test(url);
-}
-
 // labels that render in the header/intro area → slot name
 const INTRO_SLOTS = new Map([
   ['primary images', 'images'],
@@ -70,26 +65,12 @@ export default function decorate(block) {
     table.append(dt, dd);
   });
 
-  // media — collect every image in the Primary Images cell (supports multiple).
-  // Images may be authored as <picture>/<img>, or as links to an AEM asset-delivery
-  // URL (DA image links). Both are supported.
+  // media — collect every authored image in the Primary Images cell (supports multiple)
   const imagesCell = slots.get('images');
   if (imagesCell) {
-    // 1) real <picture>/<img> with a src
     imagesCell.querySelectorAll('picture').forEach((pic) => {
       const img = pic.querySelector('img');
       if (img && img.getAttribute('src')) media.append(pic);
-    });
-    // 2) links that point at an image asset → render as <img>
-    imagesCell.querySelectorAll('a[href]').forEach((a) => {
-      if (!isImageUrl(a.href)) return;
-      const img = document.createElement('img');
-      img.src = a.href;
-      img.loading = 'lazy';
-      img.alt = '';
-      const pic = document.createElement('picture');
-      pic.append(img);
-      media.append(pic);
     });
   }
 

@@ -13,8 +13,7 @@
  *   - primary: filled button
  *   - link:    plain text link
  *
- * Images may be authored as links to AEM asset-delivery URLs; this block turns
- * those links into <img> elements (the EDS pipeline blanks site-path <img> tags).
+ * The image is a standard authored image (<picture>/<img>).
  *
  * @param {Element} block
  */
@@ -22,29 +21,11 @@
 const IMAGE_STYLES = ['background-image', 'left-image'];
 const CTA_STYLES = ['primary', 'link'];
 
-function isImageUrl(url) {
-  return /\.(avif|webp|png|jpe?g|gif|svg)(\?|$)/i.test(url) || /\/adobe\/assets\//i.test(url);
-}
-
 // pick the matching keyword from a cell's text, or '' if none/no cell
 function readStyle(cell, allowed) {
   if (!cell) return '';
   const text = cell.textContent.trim().toLowerCase();
   return allowed.find((s) => text.includes(s)) || '';
-}
-
-// turn a link-to-image-asset inside a cell into a <picture><img>
-function normaliseImage(cell) {
-  if (!cell || cell.querySelector('img')) return;
-  const link = [...cell.querySelectorAll('a[href]')].find((a) => isImageUrl(a.href));
-  if (!link) return;
-  const img = document.createElement('img');
-  img.src = link.href;
-  img.loading = 'lazy';
-  img.alt = '';
-  const picture = document.createElement('picture');
-  picture.append(img);
-  link.replaceWith(picture);
 }
 
 export default function decorate(block) {
@@ -63,7 +44,6 @@ export default function decorate(block) {
   const image = document.createElement('div');
   image.className = 'hero-image';
   if (imageCell) {
-    normaliseImage(imageCell);
     while (imageCell.firstChild) image.append(imageCell.firstChild);
   }
 
