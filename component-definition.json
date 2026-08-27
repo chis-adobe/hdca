@@ -261,7 +261,7 @@
           "model": "hero",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"hero\"><div><div><img loading=\"lazy\"></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
+              "unsafeHTML": "<div class=\"hero\"><div><div><img loading=\"lazy\"></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div><div><div></div><div>white</div></div></div>",
               "fields": [
                 {
                   "name": "image",
@@ -290,6 +290,10 @@
                 {
                   "name": "ctaStyle",
                   "selector": "div:nth-child(3)>div:nth-child(2)"
+                },
+                {
+                  "name": "bgColour",
+                  "selector": "div:nth-child(4)>div:nth-child(2)"
                 }
               ]
             }

@@ -6,7 +6,7 @@
       "model": "hero",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"hero\"><div><div><img loading=\"lazy\"></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
+          "unsafeHTML": "<div class=\"hero\"><div><div><img loading=\"lazy\"></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div><div><div></div><div>white</div></div></div>",
           "fields": [
             { "name": "image", "selector": "div:nth-child(1)>div:nth-child(1) img[src]" },
             { "name": "imageAlt", "selector": "div:nth-child(1)>div:nth-child(1) img[alt]" },
@@ -14,7 +14,8 @@
             { "name": "text", "selector": "div:nth-child(2)>div:nth-child(1)" },
             { "name": "textStyle", "selector": "div:nth-child(2)>div:nth-child(2)" },
             { "name": "cta", "selector": "div:nth-child(3)>div:nth-child(1)>a[href]" },
-            { "name": "ctaStyle", "selector": "div:nth-child(3)>div:nth-child(2)" }
+            { "name": "ctaStyle", "selector": "div:nth-child(3)>div:nth-child(2)" },
+            { "name": "bgColour", "selector": "div:nth-child(4)>div:nth-child(2)" }
           ]
         }
       }
@@ -45,8 +46,9 @@
           "value": "background-image",
           "valueType": "string",
           "options": [
-            { "name": "Background Image", "value": "background-image" },
-            { "name": "Left Image", "value": "left-image" }
+            { "name": "Background Image (full width)", "value": "background-image" },
+            { "name": "Left Image", "value": "left-image" },
+            { "name": "Right Image", "value": "right-image" }
           ]
         },
         {
@@ -78,6 +80,18 @@
           "options": [
             { "name": "Primary (button)", "value": "primary" },
             { "name": "Link", "value": "link" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "bgColour",
+          "label": "Background Colour (left/right image only)",
+          "value": "white",
+          "valueType": "string",
+          "options": [
+            { "name": "White", "value": "white" },
+            { "name": "Orange", "value": "orange" },
+            { "name": "Grey", "value": "grey" }
           ]
         }
       ]

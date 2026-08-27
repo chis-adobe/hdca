@@ -222,12 +222,16 @@
         "valueType": "string",
         "options": [
           {
-            "name": "Background Image",
+            "name": "Background Image (full width)",
             "value": "background-image"
           },
           {
             "name": "Left Image",
             "value": "left-image"
+          },
+          {
+            "name": "Right Image",
+            "value": "right-image"
           }
         ]
       },
@@ -265,6 +269,27 @@
           {
             "name": "Link",
             "value": "link"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "bgColour",
+        "label": "Background Colour (left/right image only)",
+        "value": "white",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "White",
+            "value": "white"
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          },
+          {
+            "name": "Grey",
+            "value": "grey"
           }
         ]
       }

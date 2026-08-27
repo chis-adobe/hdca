@@ -9,7 +9,6 @@
   position: relative;
   border-radius: var(--border-radius-m);
   overflow: hidden;
-  min-height: var(--hero-min-height);
 }
 
 .hero .hero-image img {
@@ -53,7 +52,9 @@
   text-decoration: underline;
 }
 
-/* ---- variant: background-image (image fills hero, text overlaid) ---- */
+/* ---- variant: background-image (image fills hero, text overlaid) ----
+   No fixed height — the background image at width:100% determines the hero
+   height, so it is never cropped. */
 .hero.background-image .hero-image {
   position: absolute;
   inset: 0;
@@ -70,21 +71,55 @@
   z-index: 1;
 }
 
-/* ---- variant: left-image (image left, text right) ---- */
-.hero.left-image {
+/* ---- variant: left-image / right-image (image on one side, text on the other) ---- */
+.hero.left-image,
+.hero.right-image {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   border: 1px solid var(--border-color);
 }
 
-.hero.left-image .hero-image {
+.hero.left-image .hero-image,
+.hero.right-image .hero-image {
   flex: 0 0 auto;
 }
 
-.hero.left-image .hero-text {
+.hero.left-image .hero-text,
+.hero.right-image .hero-text {
   flex: 1 1 auto;
   align-self: center;
+}
+
+/* background-colour variants (split layouts only) */
+.hero.bg-white .hero-text {
+  background-color: #fff;
+}
+
+.hero.bg-orange {
+  border-color: var(--brand-primary);
+}
+
+.hero.bg-orange .hero-text {
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+
+.hero.bg-orange .hero-text .hero-cta-link {
+  color: #fff;
+}
+
+.hero.bg-grey {
+  border-color: var(--text-secondary-color);
+}
+
+.hero.bg-grey .hero-text {
+  background-color: var(--text-secondary-color);
+  color: #fff;
+}
+
+.hero.bg-grey .hero-text .hero-cta-link {
+  color: #fff;
 }
 
 @media (width >= 900px) {
@@ -92,14 +127,14 @@
     padding: var(--hero-padding-desktop);
   }
 
+  /* full-width hero: overlay the text, constrained to 30% on the right */
   .hero.background-image {
     display: flex;
     align-items: center;
-    min-height: var(--hero-min-height-desktop);
   }
 
   .hero.background-image .hero-text {
-    max-width: 40%;
+    max-width: 30%;
     margin-left: auto;
   }
 
@@ -108,7 +143,13 @@
     align-items: center;
   }
 
-  .hero.left-image .hero-image {
+  .hero.right-image {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .hero.left-image .hero-image,
+  .hero.right-image .hero-image {
     flex: 0 0 50%;
     max-width: 50%;
   }

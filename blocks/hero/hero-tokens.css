@@ -2,7 +2,5 @@
 :root {
   --hero-padding: var(--spacing-l) var(--spacing-m);
   --hero-padding-desktop: var(--spacing-xl) var(--spacing-l);
-  --hero-min-height: 200px;
-  --hero-min-height-desktop: 280px;
   --hero-heading-max-width: var(--max-width-site);
 }
