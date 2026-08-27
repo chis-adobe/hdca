@@ -201,10 +201,18 @@
     "id": "hero",
     "fields": [
       {
-        "component": "aem-content",
+        "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image (Dynamic Media link)"
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
       },
       {
         "component": "select",
@@ -278,16 +286,32 @@
     "id": "product-carousel",
     "fields": [
       {
-        "component": "aem-content",
+        "component": "reference",
         "valueType": "string",
         "name": "backgroundImage",
-        "label": "Background Image (Dynamic Media link)"
+        "label": "Background Image",
+        "multi": false
       },
       {
-        "component": "aem-content",
+        "component": "text",
+        "valueType": "string",
+        "name": "backgroundImageAlt",
+        "label": "Background Image Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
         "valueType": "string",
         "name": "thumbnail",
-        "label": "Thumbnail (Dynamic Media link)"
+        "label": "Thumbnail",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "thumbnailAlt",
+        "label": "Thumbnail Alt",
+        "value": ""
       },
       {
         "component": "text",
@@ -323,10 +347,18 @@
     "id": "product-details",
     "fields": [
       {
-        "component": "aem-content",
+        "component": "reference",
         "valueType": "string",
         "name": "primaryImage",
-        "label": "Primary Image (Dynamic Media link)"
+        "label": "Primary Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "primaryImageAlt",
+        "label": "Primary Image Alt",
+        "value": ""
       },
       {
         "component": "text",
