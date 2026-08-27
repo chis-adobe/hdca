@@ -6,10 +6,10 @@
       "model": "hero",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
+          "unsafeHTML": "<div class=\"hero\"><div><div><img loading=\"lazy\"></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
           "fields": [
-            { "name": "image", "selector": "div:nth-child(1)>div:nth-child(1) picture > img[src]" },
-            { "name": "imageAlt", "selector": "div:nth-child(1)>div:nth-child(1) picture > img[alt]" },
+            { "name": "image", "selector": "div:nth-child(1)>div:nth-child(1) img[src]" },
+            { "name": "imageAlt", "selector": "div:nth-child(1)>div:nth-child(1) img[alt]" },
             { "name": "imageStyle", "selector": "div:nth-child(1)>div:nth-child(2)" },
             { "name": "text", "selector": "div:nth-child(2)>div:nth-child(1)" },
             { "name": "textStyle", "selector": "div:nth-child(2)>div:nth-child(2)" },

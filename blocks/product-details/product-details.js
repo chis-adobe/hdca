@@ -65,12 +65,17 @@ export default function decorate(block) {
     table.append(dt, dd);
   });
 
-  // media — collect every authored image in the Primary Images cell (supports multiple)
+  // media — collect every authored image in the Primary Images cell (supports multiple).
+  // Images may be authored as <picture> (DA doc) or a bare <img> (Universal Editor).
   const imagesCell = slots.get('images');
   if (imagesCell) {
     imagesCell.querySelectorAll('picture').forEach((pic) => {
       const img = pic.querySelector('img');
       if (img && img.getAttribute('src')) media.append(pic);
+    });
+    // bare <img> not wrapped in a <picture>
+    imagesCell.querySelectorAll('img[src]').forEach((img) => {
+      if (!img.closest('picture')) media.append(img);
     });
   }
 
@@ -111,7 +116,7 @@ export default function decorate(block) {
 
   const header = document.createElement('div');
   header.className = 'product-details-header';
-  if (media.querySelector('picture')) header.append(media);
+  if (media.querySelector('picture, img')) header.append(media);
   header.append(intro);
 
   block.textContent = '';

@@ -261,15 +261,15 @@
           "model": "hero",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
+              "unsafeHTML": "<div class=\"hero\"><div><div><img loading=\"lazy\"></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
               "fields": [
                 {
                   "name": "image",
-                  "selector": "div:nth-child(1)>div:nth-child(1) picture > img[src]"
+                  "selector": "div:nth-child(1)>div:nth-child(1) img[src]"
                 },
                 {
                   "name": "imageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(1) picture > img[alt]"
+                  "selector": "div:nth-child(1)>div:nth-child(1) img[alt]"
                 },
                 {
                   "name": "imageStyle",
@@ -317,23 +317,23 @@
           "model": "product-carousel",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"product-carousel\"><div><div>Background Image</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Thumbnail</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Heading</div><div></div></div><div><div>Description</div><div></div></div><div><div>CTA</div><div></div></div><div><div>Products</div><div></div></div></div>",
+              "unsafeHTML": "<div class=\"product-carousel\"><div><div>Background Image</div><div><img loading=\"lazy\"></div></div><div><div>Thumbnail</div><div><img loading=\"lazy\"></div></div><div><div>Heading</div><div></div></div><div><div>Description</div><div></div></div><div><div>CTA</div><div></div></div><div><div>Products</div><div></div></div></div>",
               "fields": [
                 {
                   "name": "backgroundImage",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]"
+                  "selector": "div:nth-child(1)>div:nth-child(2) img[src]"
                 },
                 {
                   "name": "backgroundImageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]"
+                  "selector": "div:nth-child(1)>div:nth-child(2) img[alt]"
                 },
                 {
                   "name": "thumbnail",
-                  "selector": "div:nth-child(2)>div:nth-child(2) picture > img[src]"
+                  "selector": "div:nth-child(2)>div:nth-child(2) img[src]"
                 },
                 {
                   "name": "thumbnailAlt",
-                  "selector": "div:nth-child(2)>div:nth-child(2) picture > img[alt]"
+                  "selector": "div:nth-child(2)>div:nth-child(2) img[alt]"
                 },
                 {
                   "name": "heading",
@@ -361,15 +361,15 @@
           "model": "product-details",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
+              "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><img loading=\"lazy\"></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
               "fields": [
                 {
                   "name": "primaryImage",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]"
+                  "selector": "div:nth-child(1)>div:nth-child(2) img[src]"
                 },
                 {
                   "name": "primaryImageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]"
+                  "selector": "div:nth-child(1)>div:nth-child(2) img[alt]"
                 },
                 {
                   "name": "productName",
