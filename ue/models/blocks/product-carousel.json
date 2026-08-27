@@ -6,12 +6,10 @@
       "model": "product-carousel",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"product-carousel\"><div><div>Background Image</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Thumbnail</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Heading</div><div></div></div><div><div>Description</div><div></div></div><div><div>CTA</div><div></div></div><div><div>Products</div><div></div></div></div>",
+          "unsafeHTML": "<div class=\"product-carousel\"><div><div>Background Image</div><div><p><a href=\"\"></a></p></div></div><div><div>Thumbnail</div><div><p><a href=\"\"></a></p></div></div><div><div>Heading</div><div></div></div><div><div>Description</div><div></div></div><div><div>CTA</div><div></div></div><div><div>Products</div><div></div></div></div>",
           "fields": [
-            { "name": "backgroundImage", "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]" },
-            { "name": "backgroundImageAlt", "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]" },
-            { "name": "thumbnail", "selector": "div:nth-child(2)>div:nth-child(2) picture > img[src]" },
-            { "name": "thumbnailAlt", "selector": "div:nth-child(2)>div:nth-child(2) picture > img[alt]" },
+            { "name": "backgroundImage", "selector": "div:nth-child(1)>div:nth-child(2)>p>a[href]" },
+            { "name": "thumbnail", "selector": "div:nth-child(2)>div:nth-child(2)>p>a[href]" },
             { "name": "heading", "selector": "div:nth-child(3)>div:nth-child(2)" },
             { "name": "description", "selector": "div:nth-child(4)>div:nth-child(2)" },
             { "name": "cta", "selector": "div:nth-child(5)>div:nth-child(2)" },
@@ -25,10 +23,8 @@
     {
       "id": "product-carousel",
       "fields": [
-        { "component": "reference", "valueType": "string", "name": "backgroundImage", "label": "Background Image", "multi": false },
-        { "component": "text", "valueType": "string", "name": "backgroundImageAlt", "label": "Background Image Alt", "value": "" },
-        { "component": "reference", "valueType": "string", "name": "thumbnail", "label": "Thumbnail", "multi": false },
-        { "component": "text", "valueType": "string", "name": "thumbnailAlt", "label": "Thumbnail Alt", "value": "" },
+        { "component": "aem-content", "valueType": "string", "name": "backgroundImage", "label": "Background Image (Dynamic Media link)" },
+        { "component": "aem-content", "valueType": "string", "name": "thumbnail", "label": "Thumbnail (Dynamic Media link)" },
         { "component": "text", "valueType": "string", "name": "heading", "label": "Heading", "value": "" },
         { "component": "text", "valueType": "string", "name": "description", "label": "Description", "value": "" },
         { "component": "richtext", "valueType": "string", "name": "cta", "label": "CTA", "value": "" },

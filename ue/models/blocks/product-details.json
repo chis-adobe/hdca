@@ -6,10 +6,9 @@
       "model": "product-details",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
+          "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><p><a href=\"\"></a></p></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
           "fields": [
-            { "name": "primaryImage", "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]" },
-            { "name": "primaryImageAlt", "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]" },
+            { "name": "primaryImage", "selector": "div:nth-child(1)>div:nth-child(2)>p>a[href]" },
             { "name": "productName", "selector": "div:nth-child(2)>div:nth-child(2)" },
             { "name": "brand", "selector": "div:nth-child(3)>div:nth-child(2)" },
             { "name": "price", "selector": "div:nth-child(4)>div:nth-child(2)" },
@@ -39,8 +38,7 @@
     {
       "id": "product-details",
       "fields": [
-        { "component": "reference", "valueType": "string", "name": "primaryImage", "label": "Primary Image", "multi": false },
-        { "component": "text", "valueType": "string", "name": "primaryImageAlt", "label": "Primary Image Alt", "value": "" },
+        { "component": "aem-content", "valueType": "string", "name": "primaryImage", "label": "Primary Image (Dynamic Media link)" },
         { "component": "text", "valueType": "string", "name": "productName", "label": "Product Name", "value": "" },
         { "component": "text", "valueType": "string", "name": "brand", "label": "Brand", "value": "" },
         { "component": "text", "valueType": "string", "name": "price", "label": "Price", "value": "" },

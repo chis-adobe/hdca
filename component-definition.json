@@ -216,6 +216,26 @@
           }
         },
         {
+          "title": "Flyer Offers",
+          "id": "flyer-offers",
+          "model": "flyer-offers",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"flyer-offers\"><div><div>Check Out These Top Flyer Offers</div></div><div><div><ul><li><a href=\"/fragments/products/\">Product</a></li></ul></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div"
+                },
+                {
+                  "name": "products",
+                  "selector": "div:nth-child(2)>div"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "model": "fragment",
@@ -241,15 +261,11 @@
           "model": "hero",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
+              "unsafeHTML": "<div class=\"hero\"><div><div><p><a href=\"\"></a></p></div><div>background-image</div></div><div><div><h2></h2></div><div></div></div><div><div><a href=\"#\"></a></div><div>primary</div></div></div>",
               "fields": [
                 {
                   "name": "image",
-                  "selector": "div:nth-child(1)>div:nth-child(1) picture > img[src]"
-                },
-                {
-                  "name": "imageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(1) picture > img[alt]"
+                  "selector": "div:nth-child(1)>div:nth-child(1)>p>a[href]"
                 },
                 {
                   "name": "imageStyle",
@@ -270,6 +286,154 @@
                 {
                   "name": "ctaStyle",
                   "selector": "div:nth-child(3)>div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Popular Searches",
+          "id": "popular-searches",
+          "model": "popular-searches",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"popular-searches\"><div><div><h2>Popular Searches</h2><ul><li><a href=\"#\">Search term</a></li></ul></div></div></div>",
+              "fields": [
+                {
+                  "name": "content",
+                  "selector": "div>div"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Product Carousel",
+          "id": "product-carousel",
+          "model": "product-carousel",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"product-carousel\"><div><div>Background Image</div><div><p><a href=\"\"></a></p></div></div><div><div>Thumbnail</div><div><p><a href=\"\"></a></p></div></div><div><div>Heading</div><div></div></div><div><div>Description</div><div></div></div><div><div>CTA</div><div></div></div><div><div>Products</div><div></div></div></div>",
+              "fields": [
+                {
+                  "name": "backgroundImage",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>p>a[href]"
+                },
+                {
+                  "name": "thumbnail",
+                  "selector": "div:nth-child(2)>div:nth-child(2)>p>a[href]"
+                },
+                {
+                  "name": "heading",
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
+                },
+                {
+                  "name": "description",
+                  "selector": "div:nth-child(4)>div:nth-child(2)"
+                },
+                {
+                  "name": "cta",
+                  "selector": "div:nth-child(5)>div:nth-child(2)"
+                },
+                {
+                  "name": "products",
+                  "selector": "div:nth-child(6)>div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Product Details",
+          "id": "product-details",
+          "model": "product-details",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><p><a href=\"\"></a></p></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
+              "fields": [
+                {
+                  "name": "primaryImage",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>p>a[href]"
+                },
+                {
+                  "name": "productName",
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
+                },
+                {
+                  "name": "brand",
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
+                },
+                {
+                  "name": "price",
+                  "selector": "div:nth-child(4)>div:nth-child(2)"
+                },
+                {
+                  "name": "shortDescription",
+                  "selector": "div:nth-child(5)>div:nth-child(2)"
+                },
+                {
+                  "name": "keyFeatures",
+                  "selector": "div:nth-child(6)>div:nth-child(2)"
+                },
+                {
+                  "name": "sku",
+                  "selector": "div:nth-child(7)>div:nth-child(2)"
+                },
+                {
+                  "name": "modelNumber",
+                  "selector": "div:nth-child(8)>div:nth-child(2)"
+                },
+                {
+                  "name": "breadcrumbCategory",
+                  "selector": "div:nth-child(9)>div:nth-child(2)"
+                },
+                {
+                  "name": "colourFamily",
+                  "selector": "div:nth-child(10)>div:nth-child(2)"
+                },
+                {
+                  "name": "assembledDepthIn",
+                  "selector": "div:nth-child(11)>div:nth-child(2)"
+                },
+                {
+                  "name": "assembledHeightIn",
+                  "selector": "div:nth-child(12)>div:nth-child(2)"
+                },
+                {
+                  "name": "assembledWidthIn",
+                  "selector": "div:nth-child(13)>div:nth-child(2)"
+                },
+                {
+                  "name": "assembledWeightLbs",
+                  "selector": "div:nth-child(14)>div:nth-child(2)"
+                },
+                {
+                  "name": "packagedDepthIn",
+                  "selector": "div:nth-child(15)>div:nth-child(2)"
+                },
+                {
+                  "name": "packagedHeightIn",
+                  "selector": "div:nth-child(16)>div:nth-child(2)"
+                },
+                {
+                  "name": "packagedWidthIn",
+                  "selector": "div:nth-child(17)>div:nth-child(2)"
+                },
+                {
+                  "name": "packagedWeightLbs",
+                  "selector": "div:nth-child(18)>div:nth-child(2)"
+                },
+                {
+                  "name": "reviewCount",
+                  "selector": "div:nth-child(19)>div:nth-child(2)"
+                },
+                {
+                  "name": "warrantyText",
+                  "selector": "div:nth-child(20)>div:nth-child(2)"
+                },
+                {
+                  "name": "sourceUrl",
+                  "selector": "div:nth-child(21)>div:nth-child(2)>a[href]"
                 }
               ]
             }
@@ -364,6 +528,22 @@
           }
         },
         {
+          "title": "Shop by Department",
+          "id": "shop-by-department",
+          "model": "shop-by-department",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"shop-by-department\"><div><div><h2>Shop by Department</h2><ul><li><a href=\"/dept/\">Department</a></li></ul></div></div></div>",
+              "fields": [
+                {
+                  "name": "content",
+                  "selector": "div>div"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Table",
           "id": "table",
           "model": "table",
@@ -436,202 +616,6 @@
                 {
                   "name": "posterImage",
                   "selector": "div>div>picture>img[src]"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Product Details",
-          "id": "product-details",
-          "model": "product-details",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"product-details\"><div><div>Primary Images</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Product Name</div><div></div></div><div><div>Brand</div><div></div></div><div><div>Price</div><div></div></div><div><div>Short Description</div><div></div></div><div><div>Key Features</div><div></div></div><div><div>SKU</div><div></div></div><div><div>Model Number</div><div></div></div><div><div>Breadcrumb Category</div><div></div></div><div><div>Colour Family</div><div></div></div><div><div>Assembled Depth (in)</div><div></div></div><div><div>Assembled Height (in)</div><div></div></div><div><div>Assembled Width (in)</div><div></div></div><div><div>Assembled Weight (lbs)</div><div></div></div><div><div>Packaged Depth (in)</div><div></div></div><div><div>Packaged Height (in)</div><div></div></div><div><div>Packaged Width (in)</div><div></div></div><div><div>Packaged Weight (lbs)</div><div></div></div><div><div>Review Count</div><div></div></div><div><div>Warranty</div><div></div></div><div><div>Source URL</div><div></div></div></div>",
-              "fields": [
-                {
-                  "name": "primaryImage",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]"
-                },
-                {
-                  "name": "primaryImageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]"
-                },
-                {
-                  "name": "productName",
-                  "selector": "div:nth-child(2)>div:nth-child(2)"
-                },
-                {
-                  "name": "brand",
-                  "selector": "div:nth-child(3)>div:nth-child(2)"
-                },
-                {
-                  "name": "price",
-                  "selector": "div:nth-child(4)>div:nth-child(2)"
-                },
-                {
-                  "name": "shortDescription",
-                  "selector": "div:nth-child(5)>div:nth-child(2)"
-                },
-                {
-                  "name": "keyFeatures",
-                  "selector": "div:nth-child(6)>div:nth-child(2)"
-                },
-                {
-                  "name": "sku",
-                  "selector": "div:nth-child(7)>div:nth-child(2)"
-                },
-                {
-                  "name": "modelNumber",
-                  "selector": "div:nth-child(8)>div:nth-child(2)"
-                },
-                {
-                  "name": "breadcrumbCategory",
-                  "selector": "div:nth-child(9)>div:nth-child(2)"
-                },
-                {
-                  "name": "colourFamily",
-                  "selector": "div:nth-child(10)>div:nth-child(2)"
-                },
-                {
-                  "name": "assembledDepthIn",
-                  "selector": "div:nth-child(11)>div:nth-child(2)"
-                },
-                {
-                  "name": "assembledHeightIn",
-                  "selector": "div:nth-child(12)>div:nth-child(2)"
-                },
-                {
-                  "name": "assembledWidthIn",
-                  "selector": "div:nth-child(13)>div:nth-child(2)"
-                },
-                {
-                  "name": "assembledWeightLbs",
-                  "selector": "div:nth-child(14)>div:nth-child(2)"
-                },
-                {
-                  "name": "packagedDepthIn",
-                  "selector": "div:nth-child(15)>div:nth-child(2)"
-                },
-                {
-                  "name": "packagedHeightIn",
-                  "selector": "div:nth-child(16)>div:nth-child(2)"
-                },
-                {
-                  "name": "packagedWidthIn",
-                  "selector": "div:nth-child(17)>div:nth-child(2)"
-                },
-                {
-                  "name": "packagedWeightLbs",
-                  "selector": "div:nth-child(18)>div:nth-child(2)"
-                },
-                {
-                  "name": "reviewCount",
-                  "selector": "div:nth-child(19)>div:nth-child(2)"
-                },
-                {
-                  "name": "warrantyText",
-                  "selector": "div:nth-child(20)>div:nth-child(2)"
-                },
-                {
-                  "name": "sourceUrl",
-                  "selector": "div:nth-child(21)>div:nth-child(2)>a[href]"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Product Carousel",
-          "id": "product-carousel",
-          "model": "product-carousel",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"product-carousel\"><div><div>Background Image</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Thumbnail</div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div>Heading</div><div></div></div><div><div>Description</div><div></div></div><div><div>CTA</div><div></div></div><div><div>Products</div><div></div></div></div>",
-              "fields": [
-                {
-                  "name": "backgroundImage",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[src]"
-                },
-                {
-                  "name": "backgroundImageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(2) picture > img[alt]"
-                },
-                {
-                  "name": "thumbnail",
-                  "selector": "div:nth-child(2)>div:nth-child(2) picture > img[src]"
-                },
-                {
-                  "name": "thumbnailAlt",
-                  "selector": "div:nth-child(2)>div:nth-child(2) picture > img[alt]"
-                },
-                {
-                  "name": "heading",
-                  "selector": "div:nth-child(3)>div:nth-child(2)"
-                },
-                {
-                  "name": "description",
-                  "selector": "div:nth-child(4)>div:nth-child(2)"
-                },
-                {
-                  "name": "cta",
-                  "selector": "div:nth-child(5)>div:nth-child(2)"
-                },
-                {
-                  "name": "products",
-                  "selector": "div:nth-child(6)>div:nth-child(2)"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Popular Searches",
-          "id": "popular-searches",
-          "model": "popular-searches",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"popular-searches\"><div><div><h2>Popular Searches</h2><ul><li><a href=\"#\">Search term</a></li></ul></div></div></div>",
-              "fields": [
-                {
-                  "name": "content",
-                  "selector": "div>div"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Flyer Offers",
-          "id": "flyer-offers",
-          "model": "flyer-offers",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"flyer-offers\"><div><div>Check Out These Top Flyer Offers</div></div><div><div><ul><li><a href=\"/fragments/products/\">Product</a></li></ul></div></div></div>",
-              "fields": [
-                {
-                  "name": "title",
-                  "selector": "div:nth-child(1)>div"
-                },
-                {
-                  "name": "products",
-                  "selector": "div:nth-child(2)>div"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Shop by Department",
-          "id": "shop-by-department",
-          "model": "shop-by-department",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"shop-by-department\"><div><div><h2>Shop by Department</h2><ul><li><a href=\"/dept/\">Department</a></li></ul></div></div></div>",
-              "fields": [
-                {
-                  "name": "content",
-                  "selector": "div>div"
                 }
               ]
             }
