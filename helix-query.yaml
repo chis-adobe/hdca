@@ -53,6 +53,6 @@ indices:
         value: |
           attribute(el, 'content')
       image:
-        select: main img
+        select: head > meta[name="image-src"]
         value: |
-          attribute(el, 'src')
+          attribute(el, 'content')
