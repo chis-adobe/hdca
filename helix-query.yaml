@@ -53,6 +53,6 @@ indices:
         value: |
           attribute(el, 'content')
       image:
-        select: head > meta[property="og:image"]
+        select: main img
         value: |
-          attribute(el, 'content')
+          attribute(el, 'src')
