@@ -19,7 +19,7 @@
  * product card images come from /product-index.json (a src URL).
  */
 
-import { resolveIndexImage } from '../../scripts/scripts.js';
+import { resolveIndexImage, productSku, indexBySku } from '../../scripts/scripts.js';
 
 const norm = (s) => s.trim().toLowerCase();
 
@@ -215,9 +215,9 @@ export default async function decorate(block) {
     ? [...slots.get('products').querySelectorAll('a[href]')]
     : [];
   const index = await loadProductIndex();
-  const byPath = new Map(index.map((row) => [row.path, row]));
+  const bySku = indexBySku(index);
   productLinks.forEach((link) => {
-    const entry = byPath.get(new URL(link.href, window.location).pathname);
+    const entry = bySku.get(productSku(link.href));
     const li = document.createElement('li');
     li.append(buildCard(entry, link));
     rail.append(li);

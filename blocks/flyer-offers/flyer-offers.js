@@ -11,7 +11,7 @@
  * @param {Element} block
  */
 
-import { resolveIndexImage } from '../../scripts/scripts.js';
+import { resolveIndexImage, productSku, indexBySku } from '../../scripts/scripts.js';
 
 let indexPromise;
 async function loadProductIndex() {
@@ -117,9 +117,9 @@ export default async function decorate(block) {
   rail.className = 'flyer-offers-rail';
   const links = productsRow ? [...productsRow.querySelectorAll('a[href]')] : [];
   const index = await loadProductIndex();
-  const byPath = new Map(index.map((row) => [row.path, row]));
+  const bySku = indexBySku(index);
   links.forEach((link) => {
-    const entry = byPath.get(new URL(link.href, window.location).pathname);
+    const entry = bySku.get(productSku(link.href));
     const li = document.createElement('li');
     li.append(buildCard(entry, link));
     rail.append(li);

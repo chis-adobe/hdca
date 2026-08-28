@@ -127,6 +127,35 @@ export function resolveIndexImage(url) {
 }
 
 /**
+ * Extract the numeric product SKU from any product URL/path. Product cards may
+ * link to `/fragments/products/{sku}` (authored) or to a canonical
+ * `/product/{slug}/{sku}` URL (if the link gets rewritten), and the product
+ * index `path` is `/fragments/products/{sku}` — all of which end in the same
+ * SKU. Matching on the SKU makes card→index lookup robust to the URL form.
+ * @param {string} url a product link href, path, or index path
+ * @returns {string} the trailing SKU digits, or '' if none
+ */
+export function productSku(url) {
+  if (!url) return '';
+  // drop query/hash, split on '/', and take the digits from the last non-empty
+  // segment (handles trailing slashes without a backtracking-prone regex)
+  const segments = String(url).split(/[?#]/)[0].split('/').filter(Boolean);
+  const last = segments[segments.length - 1] || '';
+  const m = last.match(/\d{6,}/);
+  return m ? m[0] : '';
+}
+
+/**
+ * Build a SKU→entry lookup from product-index rows, so a card can find its
+ * data regardless of the product link's URL form.
+ * @param {Array<{path:string}>} rows product-index data rows
+ * @returns {Map<string, object>} map keyed by SKU
+ */
+export function indexBySku(rows) {
+  return new Map((rows || []).map((row) => [productSku(row.path), row]));
+}
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
