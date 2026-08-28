@@ -42,6 +42,14 @@ indices:
         select: .product-details > div:nth-child(24) > div:nth-child(2)
         value: |
           textContent(el)
+      probe25:
+        select: .product-details > div:nth-child(25) > div:nth-child(2)
+        value: |
+          textContent(el)
+      probe26:
+        select: .product-details > div:nth-child(26) > div:nth-child(2)
+        value: |
+          textContent(el)
       imageSrc:
         select: .product-details > div:nth-child(1) > div:nth-child(2) picture:first-of-type img
         value: |
