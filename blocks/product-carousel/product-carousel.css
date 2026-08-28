@@ -81,8 +81,8 @@
 }
 
 .product-carousel .product-carousel-rail > li {
-  flex: 0 0 auto;
-  width: 180px;
+  /* show exactly two products in the visible window; the rest scroll */
+  flex: 0 0 calc((100% - var(--spacing-m)) / 2);
   scroll-snap-align: start;
 }
 
