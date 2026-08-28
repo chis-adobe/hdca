@@ -53,22 +53,27 @@
 }
 
 /* ---- variant: background-image (image fills hero, text overlaid) ----
-   No fixed height — the background image at width:100% determines the hero
-   height, so it is never cropped. */
+   The image flows normally at width:100% / height:auto, so its natural aspect
+   ratio sets the hero height and it is never cropped. The text is overlaid on
+   top of it. */
 .hero.background-image .hero-image {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 0;
 }
 
 .hero.background-image .hero-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  object-fit: unset;
 }
 
 .hero.background-image .hero-text {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ---- variant: left-image / right-image (image on one side, text on the other) ---- */
@@ -91,34 +96,31 @@
   align-self: center;
 }
 
-/* background-colour variants (split layouts only) */
-.hero.bg-white .hero-text {
+/* background-colour variants (split layouts only) — the colour fills the whole
+   block (behind both the image and the text); the text panel is transparent. */
+.hero.left-image.bg-white,
+.hero.right-image.bg-white {
   background-color: #fff;
 }
 
-.hero.bg-orange {
-  border-color: var(--brand-primary);
-}
-
-.hero.bg-orange .hero-text {
+.hero.left-image.bg-orange,
+.hero.right-image.bg-orange {
   background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
   color: #fff;
 }
 
-.hero.bg-orange .hero-text .hero-cta-link {
-  color: #fff;
-}
-
-.hero.bg-grey {
-  border-color: var(--text-secondary-color);
-}
-
-.hero.bg-grey .hero-text {
+.hero.left-image.bg-grey,
+.hero.right-image.bg-grey {
   background-color: var(--text-secondary-color);
+  border-color: var(--text-secondary-color);
   color: #fff;
 }
 
-.hero.bg-grey .hero-text .hero-cta-link {
+.hero.left-image.bg-orange .hero-cta-link,
+.hero.right-image.bg-orange .hero-cta-link,
+.hero.left-image.bg-grey .hero-cta-link,
+.hero.right-image.bg-grey .hero-cta-link {
   color: #fff;
 }
 
@@ -127,15 +129,10 @@
     padding: var(--hero-padding-desktop);
   }
 
-  /* full-width hero: overlay the text, constrained to 30% on the right */
-  .hero.background-image {
-    display: flex;
-    align-items: center;
-  }
-
+  /* full-width hero: text overlay constrained to 30% on the right */
   .hero.background-image .hero-text {
-    max-width: 30%;
-    margin-left: auto;
+    left: auto;
+    width: 30%;
   }
 
   .hero.left-image {

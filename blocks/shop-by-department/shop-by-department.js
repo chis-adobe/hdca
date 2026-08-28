@@ -12,6 +12,8 @@
  * @param {Element} block
  */
 
+import { resolveIndexImage } from '../../scripts/scripts.js';
+
 let indexPromise;
 async function loadDeptIndex() {
   if (!indexPromise) {
@@ -50,8 +52,8 @@ export default async function decorate(block) {
 
     const media = document.createElement('div');
     media.className = 'shop-by-department-tile-image';
-    const imageUrl = entry && entry.image;
-    if (imageUrl && imageUrl !== 'about:error') {
+    const imageUrl = resolveIndexImage(entry && entry.image);
+    if (imageUrl) {
       const img = document.createElement('img');
       img.src = imageUrl;
       img.alt = (entry && entry.title) || '';

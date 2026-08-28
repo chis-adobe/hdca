@@ -38,12 +38,8 @@ indices:
         select: .product-details > div:nth-child(23) > div:nth-child(2)
         value: |
           textContent(el)
-      image:
-        select: .product-details > div:nth-child(1) > div:nth-child(2) a
-        value: |
-          attribute(el, 'href')
       imageSrc:
-        select: .product-details > div:nth-child(1) > div:nth-child(2) img
+        select: .product-details > div:nth-child(1) > div:nth-child(2) picture:first-of-type img
         value: |
           attribute(el, 'src')
 

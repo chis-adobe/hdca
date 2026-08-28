@@ -107,6 +107,22 @@ export function getBlockId(name) {
 }
 
 /**
+ * Resolve an image URL taken from a query-index JSON entry into a URL usable on
+ * any page. Product pages deliver pipeline-optimized `./media_*` sources that are
+ * relative to the product path; the same hashes are also served from the site
+ * root, so a `./media_` (or `media_`) value is rewritten to a root-relative
+ * `/media_` URL. Absolute URLs (http/https) and already root-relative URLs pass
+ * through unchanged; the `about:error` sentinel and empty values return ''.
+ * @param {string} url the raw image value from the index
+ * @returns {string} a resolvable URL, or '' if there is none
+ */
+export function resolveIndexImage(url) {
+  if (!url || url === 'about:error') return '';
+  if (/^https?:\/\//.test(url) || url.startsWith('/')) return url;
+  return `/${url.replace(/^\.\//, '')}`;
+}
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {

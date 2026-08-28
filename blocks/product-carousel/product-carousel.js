@@ -19,6 +19,8 @@
  * product card images come from /product-index.json (a src URL).
  */
 
+import { resolveIndexImage } from '../../scripts/scripts.js';
+
 const norm = (s) => s.trim().toLowerCase();
 
 const SLOTS = new Map([
@@ -113,8 +115,7 @@ function buildCard(entry, link) {
   card.className = 'product-carousel-card';
   card.href = path;
 
-  const rawImage = entry && (entry.image || entry.imageSrc);
-  const imageUrl = rawImage && rawImage !== 'about:error' ? rawImage : '';
+  const imageUrl = resolveIndexImage(entry && entry.imageSrc);
   const media = document.createElement('div');
   media.className = 'product-carousel-card-image';
   const img = imageFromUrl(imageUrl, entry && entry.productName);

@@ -11,6 +11,8 @@
  * @param {Element} block
  */
 
+import { resolveIndexImage } from '../../scripts/scripts.js';
+
 let indexPromise;
 async function loadProductIndex() {
   if (!indexPromise) {
@@ -71,8 +73,7 @@ function buildCard(entry, link) {
   card.className = 'flyer-offers-card';
   card.href = path;
 
-  const rawImage = entry && (entry.image || entry.imageSrc);
-  const imageUrl = rawImage && rawImage !== 'about:error' ? rawImage : '';
+  const imageUrl = resolveIndexImage(entry && entry.imageSrc);
   const media = document.createElement('div');
   media.className = 'flyer-offers-card-image';
   if (imageUrl) {
