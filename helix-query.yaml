@@ -53,6 +53,6 @@ indices:
         value: |
           attribute(el, 'content')
       image:
-        select: head > meta[name="image-src"]
+        select: .dept-image
         value: |
-          attribute(el, 'content')
+          textContent(el)
