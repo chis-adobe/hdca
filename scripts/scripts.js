@@ -118,8 +118,12 @@ export function getBlockId(name) {
  */
 export function resolveIndexImage(url) {
   if (!url || url === 'about:error') return '';
-  if (/^https?:\/\//.test(url) || url.startsWith('/')) return url;
-  return `/${url.replace(/^\.\//, '')}`;
+  // a query-index selector that matches multiple images concatenates their
+  // srcs (e.g. "./media_a.avif?...medium./media_b.avif?..."); keep only the
+  // first by cutting at the start of any second URL token.
+  const single = url.replace(/(\.avif|\.png|\.jpe?g|\.webp|medium)(https?:\/\/|\.\/|\/media_).*$/i, '$1');
+  if (/^https?:\/\//.test(single) || single.startsWith('/')) return single;
+  return `/${single.replace(/^\.\//, '')}`;
 }
 
 /**
