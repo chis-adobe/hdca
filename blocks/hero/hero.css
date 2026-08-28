@@ -117,10 +117,19 @@
   color: #fff;
 }
 
+.hero.left-image.bg-blue,
+.hero.right-image.bg-blue {
+  background-color: var(--link-color);
+  border-color: var(--link-color);
+  color: #fff;
+}
+
 .hero.left-image.bg-orange .hero-cta-link,
 .hero.right-image.bg-orange .hero-cta-link,
 .hero.left-image.bg-grey .hero-cta-link,
-.hero.right-image.bg-grey .hero-cta-link {
+.hero.right-image.bg-grey .hero-cta-link,
+.hero.left-image.bg-blue .hero-cta-link,
+.hero.right-image.bg-blue .hero-cta-link {
   color: #fff;
 }
 

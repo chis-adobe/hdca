@@ -290,6 +290,10 @@
           {
             "name": "Grey",
             "value": "grey"
+          },
+          {
+            "name": "Blue",
+            "value": "blue"
           }
         ]
       }

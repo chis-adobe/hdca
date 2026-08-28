@@ -24,7 +24,7 @@
 
 const IMAGE_STYLES = ['background-image', 'left-image', 'right-image'];
 const CTA_STYLES = ['primary', 'link'];
-const BG_COLOURS = ['white', 'orange', 'grey'];
+const BG_COLOURS = ['white', 'orange', 'grey', 'blue'];
 
 // pick the matching keyword from a cell's text, or '' if none/no cell
 function readStyle(cell, allowed) {

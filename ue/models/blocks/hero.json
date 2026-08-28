@@ -91,7 +91,8 @@
           "options": [
             { "name": "White", "value": "white" },
             { "name": "Orange", "value": "orange" },
-            { "name": "Grey", "value": "grey" }
+            { "name": "Grey", "value": "grey" },
+            { "name": "Blue", "value": "blue" }
           ]
         }
       ]
