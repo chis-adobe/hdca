@@ -107,55 +107,6 @@ export function getBlockId(name) {
 }
 
 /**
- * Resolve an image URL taken from a query-index JSON entry into a URL usable on
- * any page. Product pages deliver pipeline-optimized `./media_*` sources that are
- * relative to the product path; the same hashes are also served from the site
- * root, so a `./media_` (or `media_`) value is rewritten to a root-relative
- * `/media_` URL. Absolute URLs (http/https) and already root-relative URLs pass
- * through unchanged; the `about:error` sentinel and empty values return ''.
- * @param {string} url the raw image value from the index
- * @returns {string} a resolvable URL, or '' if there is none
- */
-export function resolveIndexImage(url) {
-  if (!url || url === 'about:error') return '';
-  // a query-index selector that matches multiple images concatenates their
-  // srcs (e.g. "./media_a.avif?...medium./media_b.avif?..."); keep only the
-  // first by cutting at the start of any second URL token.
-  const single = url.replace(/(\.avif|\.png|\.jpe?g|\.webp|medium)(https?:\/\/|\.\/|\/media_).*$/i, '$1');
-  if (/^https?:\/\//.test(single) || single.startsWith('/')) return single;
-  return `/${single.replace(/^\.\//, '')}`;
-}
-
-/**
- * Extract the numeric product SKU from any product URL/path. Product cards may
- * link to `/fragments/products/{sku}` (authored) or to a canonical
- * `/product/{slug}/{sku}` URL (if the link gets rewritten), and the product
- * index `path` is `/fragments/products/{sku}` — all of which end in the same
- * SKU. Matching on the SKU makes card→index lookup robust to the URL form.
- * @param {string} url a product link href, path, or index path
- * @returns {string} the trailing SKU digits, or '' if none
- */
-export function productSku(url) {
-  if (!url) return '';
-  // drop query/hash, split on '/', and take the digits from the last non-empty
-  // segment (handles trailing slashes without a backtracking-prone regex)
-  const segments = String(url).split(/[?#]/)[0].split('/').filter(Boolean);
-  const last = segments[segments.length - 1] || '';
-  const m = last.match(/\d{6,}/);
-  return m ? m[0] : '';
-}
-
-/**
- * Build a SKU→entry lookup from product-index rows, so a card can find its
- * data regardless of the product link's URL form.
- * @param {Array<{path:string}>} rows product-index data rows
- * @returns {Map<string, object>} map keyed by SKU
- */
-export function indexBySku(rows) {
-  return new Map((rows || []).map((row) => [productSku(row.path), row]));
-}
-
-/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {

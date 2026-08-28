@@ -12,7 +12,14 @@
  * @param {Element} block
  */
 
-import { resolveIndexImage } from '../../scripts/scripts.js';
+// Inlined so the block doesn't depend on a freshly cached scripts.js loading.
+// Resolve a query-index image value to a URL usable on any page.
+function resolveIndexImage(url) {
+  if (!url || url === 'about:error') return '';
+  const single = url.replace(/(\.avif|\.png|\.jpe?g|\.webp|medium)(https?:\/\/|\.\/|\/media_).*$/i, '$1');
+  if (/^https?:\/\//.test(single) || single.startsWith('/')) return single;
+  return `/${single.replace(/^\.\//, '')}`;
+}
 
 let indexPromise;
 async function loadDeptIndex() {

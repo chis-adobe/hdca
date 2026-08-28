@@ -11,7 +11,27 @@
  * @param {Element} block
  */
 
-import { resolveIndexImage, productSku, indexBySku } from '../../scripts/scripts.js';
+// Inlined index helpers (kept local so the block never depends on a freshly
+// cached scripts.js loading — a stale scripts.js would break the import).
+// Resolve a query-index image value to a URL usable on any page.
+function resolveIndexImage(url) {
+  if (!url || url === 'about:error') return '';
+  const single = url.replace(/(\.avif|\.png|\.jpe?g|\.webp|medium)(https?:\/\/|\.\/|\/media_).*$/i, '$1');
+  if (/^https?:\/\//.test(single) || single.startsWith('/')) return single;
+  return `/${single.replace(/^\.\//, '')}`;
+}
+// Extract the trailing product SKU from any product URL/path form.
+function productSku(url) {
+  if (!url) return '';
+  const segments = String(url).split(/[?#]/)[0].split('/').filter(Boolean);
+  const last = segments[segments.length - 1] || '';
+  const m = last.match(/\d{6,}/);
+  return m ? m[0] : '';
+}
+// Build a SKU → index-entry lookup.
+function indexBySku(rows) {
+  return new Map((rows || []).map((row) => [productSku(row.path), row]));
+}
 
 let indexPromise;
 async function loadProductIndex() {
