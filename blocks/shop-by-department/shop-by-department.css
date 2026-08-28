@@ -1,6 +1,10 @@
 .shop-by-department {
-  margin: 0 auto;
+  margin: var(--spacing-xl) auto;
   max-width: var(--max-width-site);
+}
+
+.shop-by-department .shop-by-department-inner {
+  padding: var(--spacing-m) 0;
 }
 
 .shop-by-department .shop-by-department-title {
@@ -13,7 +17,8 @@
 .shop-by-department .shop-by-department-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-m);
+  column-gap: var(--spacing-m);
+  row-gap: var(--spacing-l);
   list-style: none;
   margin: 0;
   padding: 0;
