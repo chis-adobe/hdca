@@ -32,6 +32,13 @@ const INTRO_SLOTS = new Map([
   ['key features', 'features'],
 ]);
 
+// internal / non-public rows: kept in the source for authoring & indexing,
+// but never rendered on the page
+const HIDDEN_LABELS = new Set([
+  'sell score',
+  'source url',
+]);
+
 export default function decorate(block) {
   const media = document.createElement('div');
   media.className = 'product-details-media';
@@ -54,6 +61,9 @@ export default function decorate(block) {
       slots.set(slot, valueCell);
       return;
     }
+
+    // internal rows (e.g. Sell Score, Source URL) are not shown publicly
+    if (HIDDEN_LABELS.has(norm(label))) return;
 
     // spec row — label + value
     const dt = document.createElement('dt');
